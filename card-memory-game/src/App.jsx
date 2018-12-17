@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Board from './components/Board';
+import Navbar from './components/Navbar';
 
 import initializeDeck from './deck';
 
@@ -43,12 +44,12 @@ export default function App() {
     }
   }
 
-  const preloadImages = () => {
+  const preloadImages = () => 
     cards.map((card) => {
       const src = `/img/${card.type}.png`;
       new Image().src = src;
     })
-  }
+  
 
   const resetCards = () => {
     setFlipped([]);
@@ -71,8 +72,18 @@ export default function App() {
   }
 
   return (
-    <div>
-      <h1>Memory</h1>
+    <div 
+      className="app"
+      style={{
+        textAlign: "center"
+      }}
+    >
+      <Navbar 
+        wins={0}
+        losses={0}
+        score={0}
+      />
+      <h1>{"\n"}Memory</h1>
       <h2>Can you remember where the cards are?</h2>
       <Board 
         dimension={dimension}

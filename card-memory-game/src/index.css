@@ -13,6 +13,10 @@ body {
   font-family: 'FiraCode-retina';
 }
 
+.app {
+  text-align: center;
+}
+
 h1,
 h2,
 h3 {
@@ -59,10 +63,6 @@ p {
   text-align: justify;
 }
 
-a {
-  color: #ff9df7;
-}
-
 ul {
   margin: 1em 2em;
   padding: 0;
@@ -76,5 +76,21 @@ ul li {
 
 ul li ul {
   margin: 0.25em 1.25em;
+}
+
+.nav-item {
+  margin-left: 10px;
+  font-size: 20px;
+  float: left;
+  list-style-type: none;
+}
+
+a:link, a:visited {
+  text-decoration: none;
+  color: white;
+}
+
+a:hover {
+  color: #1db0ff;
 }
 

@@ -1,0 +1,14 @@
+.bg-light {
+  background: #1db0ff !important;
+  color: white;
+}
+
+nav.navbar.navbar-default {
+    margin-bottom: 0;
+  }
+  
+  
+  li {
+    margin-left: 10px;
+    font-size: 28px;
+  }
