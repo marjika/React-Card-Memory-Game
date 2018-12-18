@@ -10,6 +10,8 @@ export default function App() {
   const[dimension, setDimension] = useState(400);
   const [solved, setSolved] = useState([]);
   const [disabled, setDisabled] = useState(false);
+  const [score, setScore] = useState(0);
+  const [wins, setWins] = useState(0);
 
   useEffect(() => {
     resizeBoard()
@@ -38,6 +40,10 @@ export default function App() {
       if (isMatch(id)) {
         setSolved([...solved, flipped[0], id]);
         resetCards();
+        setScore(score + 1);
+        if (score>7) {
+          setWins(wins + 1);
+        }
       } else {
         setTimeout(resetCards, 2000)
       }
@@ -79,10 +85,11 @@ export default function App() {
       }}
     >
       <Navbar 
-        wins={0}
+        wins={wins}
         losses={0}
-        score={0}
+        score={score}
       />
+      <h1> </h1>
       <h1>{"\n"}Memory</h1>
       <h2>Can you remember where the cards are?</h2>
       <Board 
