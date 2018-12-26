@@ -19,6 +19,9 @@ const Navbar = props => (
         <li className="nav-item">
             <div className="score">Current Score: {props.score}</div>
         </li>
+        <li className="nav-item">
+            <div className="wrongGuesses">Incorrect Guesses: {props.wrongGuesses}</div>
+        </li>
       </ul>
     </div>
   </nav>

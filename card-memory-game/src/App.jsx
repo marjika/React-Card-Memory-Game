@@ -12,6 +12,7 @@ export default function App() {
   const [disabled, setDisabled] = useState(false);
   const [score, setScore] = useState(0);
   const [wins, setWins] = useState(0);
+  const [wrongGuesses, setWrongGuesses] = useState(0);
 
   useEffect(() => {
     resizeBoard()
@@ -46,7 +47,8 @@ export default function App() {
         resetCards();
         updateScore(score, checkScore);
       } else {
-        setTimeout(resetCards, 2000)
+        setTimeout(resetCards, 2000);
+        setWrongGuesses(wrongGuesses + 1);
       }
     }
   }
@@ -102,6 +104,7 @@ export default function App() {
         wins={wins}
         losses={0}
         score={score}
+        wrongGuesses={wrongGuesses}
       />
       <h1> </h1>
       <h1>{"\n"}Memory</h1>
