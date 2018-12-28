@@ -11,16 +11,23 @@ const Navbar = props => (
           </a>
         </li>
         <li className="nav-item">
-            <div className="wins">Wins: {props.wins} </div>
+         
+              <div className="wins">Wins: {props.wins} </div>
+          
+          
+              <div className="losses">Losses: {props.losses} </div>
+          
         </li>
         <li className="nav-item">
-            <div className="losses">Losses: {props.losses} </div>
+            <div className="score">Current Score: {props.score}/8</div>
+
+            <div className="wrongGuesses">Incorrect Guesses: {props.wrongGuesses}/8</div>
         </li>
-        <li className="nav-item">
-            <div className="score">Current Score: {props.score}</div>
+        <li className="title">
+          <div className="title">MEMORY</div>
         </li>
-        <li className="nav-item">
-            <div className="wrongGuesses">Incorrect Guesses: {props.wrongGuesses}</div>
+        <li className="instruction">
+            <div className="instruction">Can you remember where the cards are?</div>
         </li>
       </ul>
     </div>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react'
+import React, { useState, useEffect } from 'react'
 import Board from './components/Board';
 import Navbar from './components/Navbar';
 
@@ -13,6 +13,7 @@ export default function App() {
   const [score, setScore] = useState(0);
   const [wins, setWins] = useState(0);
   const [wrongGuesses, setWrongGuesses] = useState(0);
+  const [losses, setLosses] = useState(0);
 
   useEffect(() => {
     resizeBoard()
@@ -48,11 +49,10 @@ export default function App() {
         updateScore(score, checkScore);
       } else {
         setTimeout(resetCards, 2000);
-        setWrongGuesses(wrongGuesses + 1);
+        updateGuesses(wrongGuesses, checkGuesses);
       }
     }
   }
-
 
   function updateScore(score, callback) {
     var newScore = score + 1;
@@ -60,9 +60,21 @@ export default function App() {
     callback(newScore);
   }
 
+  function updateGuesses(guesses, callback) {
+    var newGuesses = wrongGuesses + 1;
+    setWrongGuesses(wrongGuesses + 1);
+    callback(newGuesses);
+  }
+
   const checkScore = (score) => {
     if (score>7) {
       setWins(wins + 1);
+    }
+  }
+
+  const checkGuesses = (guesses) => {
+    if (guesses>7) {
+      setLosses(losses + 1);
     }
   }
 
@@ -102,13 +114,12 @@ export default function App() {
     >
       <Navbar 
         wins={wins}
-        losses={0}
+        losses={losses}
         score={score}
         wrongGuesses={wrongGuesses}
       />
-      <h1> </h1>
-      <h1>{"\n"}Memory</h1>
-      <h2>Can you remember where the cards are?</h2>
+      {/* <h1> </h1>
+      <h1>{"\n"}Memory</h1> */}
       <Board 
         dimension={dimension}
         cards={cards}

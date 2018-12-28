@@ -68,20 +68,34 @@ ul {
   padding: 0;
 }
 
-ul li {
+/* ul {
   margin: 0;
   padding: 0.125em 0;
   color: rgb(224, 242, 255);
-}
+} */
 
-ul li ul {
+/* ul {
   margin: 0.25em 1.25em;
-}
+} */
 
-.nav-item {
+.nav-item, .nav-items {
   margin-left: 10px;
   font-size: 20px;
   float: left;
+  list-style-type: none;
+}
+
+.instruction {
+  /* margin-left: 20%; */
+  font-size: 20px;
+  float: right;
+  list-style-type: none;
+}
+
+.title {
+  margin: 0;
+  font-size: 20px;
+  float: none;
   list-style-type: none;
 }
 
@@ -92,5 +106,9 @@ a:link, a:visited {
 
 a:hover {
   color: #1db0ff;
+}
+
+.navbar {
+  min-height: 60px;
 }
 
