@@ -48,8 +48,10 @@ export default function App() {
         resetCards();
         updateScore(score, checkScore);
       } else {
-        setTimeout(resetCards, 2000);
         updateGuesses(wrongGuesses, checkGuesses);
+        if (wrongGuesses<7) {
+          setTimeout(resetCards, 2000);
+        }
       }
     }
   }
@@ -60,7 +62,7 @@ export default function App() {
     callback(newScore);
   }
 
-  function updateGuesses(guesses, callback) {
+  function updateGuesses(wrongGuesses, callback) {
     var newGuesses = wrongGuesses + 1;
     setWrongGuesses(wrongGuesses + 1);
     callback(newGuesses);
@@ -72,9 +74,13 @@ export default function App() {
     }
   }
 
-  const checkGuesses = (guesses) => {
-    if (guesses>7) {
+  const checkGuesses = (wrongGuesses) => {
+    if (wrongGuesses>7) {
       setLosses(losses + 1);
+      setSolved([]);
+      setCards(initializeDeck());
+      setWrongGuesses(0);
+      setScore(0);
     }
   }
 
@@ -118,8 +124,6 @@ export default function App() {
         score={score}
         wrongGuesses={wrongGuesses}
       />
-      {/* <h1> </h1>
-      <h1>{"\n"}Memory</h1> */}
       <Board 
         dimension={dimension}
         cards={cards}

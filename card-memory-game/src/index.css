@@ -11,6 +11,7 @@ body {
   padding: 1em 2em;
   color: white;
   font-family: 'FiraCode-retina';
+  padding-inline-start: 0px;
 }
 
 .app {
@@ -64,7 +65,7 @@ p {
 }
 
 ul {
-  margin: 1em 2em;
+  margin: 5px;
   padding: 0;
 }
 
@@ -78,25 +79,19 @@ ul {
   margin: 0.25em 1.25em;
 } */
 
-.nav-item, .nav-items {
-  margin-left: 10px;
+.nav-item {
+  margin-right: 5px;
   font-size: 20px;
-  float: left;
+  float: right;
   list-style-type: none;
 }
 
 .instruction {
   /* margin-left: 20%; */
   font-size: 20px;
-  float: right;
+  float: left;
   list-style-type: none;
-}
-
-.title {
-  margin: 0;
-  font-size: 20px;
-  float: none;
-  list-style-type: none;
+  margin-left: 10px;
 }
 
 a:link, a:visited {
