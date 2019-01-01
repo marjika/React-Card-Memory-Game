@@ -26,7 +26,6 @@ export default function App() {
 
   useEffect(() => {
     const resizeListener = window.addEventListener('resize', resizeBoard)
-
     return () => window.removeEventListener('resize', resizeListener)
   })
 
@@ -48,12 +47,14 @@ export default function App() {
         resetCards();
         updateScore(score, checkScore);
       } else {
-        updateGuesses(wrongGuesses, checkGuesses);
-        if (wrongGuesses<7) {
-          setTimeout(resetCards, 2000);
-        }
+        noMatch();
       }
     }
+  }
+
+  const noMatch = () => {
+    updateGuesses(wrongGuesses, checkGuesses);
+    setTimeout(resetCards, 2000);
   }
 
   function updateScore(score, callback) {
@@ -71,17 +72,22 @@ export default function App() {
   const checkScore = (score) => {
     if (score>7) {
       setWins(wins + 1);
+      setTimeout(newGame, 1000);
     }
   }
 
   const checkGuesses = (wrongGuesses) => {
     if (wrongGuesses>7) {
       setLosses(losses + 1);
-      setSolved([]);
-      setCards(initializeDeck());
-      setWrongGuesses(0);
-      setScore(0);
+      setTimeout(newGame, 2000);
     }
+  }
+
+  const newGame = () => {
+    setSolved([]);
+    setCards(initializeDeck());
+    setWrongGuesses(0);
+    setScore(0);
   }
 
   const preloadImages = () => 
@@ -123,6 +129,7 @@ export default function App() {
         losses={losses}
         score={score}
         wrongGuesses={wrongGuesses}
+        newGame={newGame}
       />
       <Board 
         dimension={dimension}

@@ -69,16 +69,6 @@ ul {
   padding: 0;
 }
 
-/* ul {
-  margin: 0;
-  padding: 0.125em 0;
-  color: rgb(224, 242, 255);
-} */
-
-/* ul {
-  margin: 0.25em 1.25em;
-} */
-
 .nav-item {
   margin-right: 5px;
   font-size: 20px;
@@ -94,12 +84,7 @@ ul {
   margin-left: 10px;
 }
 
-a:link, a:visited {
-  text-decoration: none;
-  color: white;
-}
-
-a:hover {
+.restart:hover {
   color: #1db0ff;
 }
 

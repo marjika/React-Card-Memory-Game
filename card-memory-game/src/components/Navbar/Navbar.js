@@ -11,15 +11,13 @@ const Navbar = props => (
             <div className="instruction">Can you remember where the cards are?</div>
         </li>
         <li className="nav-item">
-          <a className="navbar-brand" href={"/"}>
+          <div className="restart" onClick={() => props.newGame()}>
             Restart Game
-          </a>
+          </div>
         </li>
         <li className="nav-item">
          
-              <div className="wins">Wins: {props.wins} </div>
-          
-          
+              <div className="wins">Wins: {props.wins} </div>         
               <div className="losses">Losses: {props.losses} </div>
           
         </li>
