@@ -27,6 +27,7 @@ export default function Card({
                 }}
                 className={flipped ? 'front' : 'back'}
                 src={flipped || solved ? `/img/${type}.png` : '/img/back.png' }
+                alt={type}
             />
         </div>
     </div>
